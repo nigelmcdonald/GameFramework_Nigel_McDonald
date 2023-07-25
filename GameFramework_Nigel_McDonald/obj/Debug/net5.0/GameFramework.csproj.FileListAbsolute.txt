@@ -1,0 +1,16 @@
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.exe
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.deps.json
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.runtimeconfig.json
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.runtimeconfig.dev.json
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.dll
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\ref\GameFramework.dll
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\bin\Debug\net5.0\GameFramework.pdb
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.csproj.AssemblyReference.cache
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.AssemblyInfoInputs.cache
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.AssemblyInfo.cs
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.csproj.CoreCompileInputs.cache
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.dll
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\ref\GameFramework.dll
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.pdb
+C:\Users\mynam\Documents\School\2023\Semester 2\SIT320 - Advanced Algorithms\2P\Code\GameFramework\GameFramework\obj\Debug\net5.0\GameFramework.genruntimeconfig.cache
