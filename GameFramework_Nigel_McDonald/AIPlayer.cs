@@ -10,10 +10,13 @@ namespace GameFramework
     {
         // Algorithm Setup
         protected static AlgorithmFactory algorithmFactory = new AlgorithmFactory();
-        protected Algorithm selectedAlgorithm;
+        private Algorithm selectedAlgorithm;
         public List<string> availableAlgorithmNames = algorithmFactory.GetAvailableAlgorithmNames();
 
-        public AIPlayer(Game game) : base (game)
+        //properties
+        public Algorithm SelectedAlgorithm { get => selectedAlgorithm; protected set => selectedAlgorithm = value; }
+
+        public AIPlayer(Game game, string name) : base (game, name)
         {
             AlgorithmSetup();
         }
@@ -39,12 +42,12 @@ namespace GameFramework
             }
 
             // Algorithm instantiation
-            selectedAlgorithm = algorithmFactory.CreateAlgorithm(availableAlgorithmNames[Int32.Parse(userInput)], thisGame);
+            SelectedAlgorithm = algorithmFactory.CreateAlgorithm(availableAlgorithmNames[Int32.Parse(userInput)], thisGame);
         }
 
         public override void MakeMove()
         {
-            selectedAlgorithm.MakeBestMove();
+            SelectedAlgorithm.MakeBestMove();
         }
     }
 }

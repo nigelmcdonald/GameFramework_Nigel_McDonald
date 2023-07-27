@@ -49,7 +49,11 @@ namespace GameFramework
                 }
             }
             //make the best Move found;
-            thisGame.board.matrix[bestMove[0], bestMove[1]] = thisGame.Symbols[0].ToString();            
+            thisGame.board.matrix[bestMove[0], bestMove[1]] = thisGame.Symbols[0].ToString();
+            //update last move made
+            thisGame.MovesMade[0] = bestMove[0];
+            thisGame.MovesMade[1] = bestMove[1];
+
         }
 
         private int Minimax(string[,] board, int depth, bool isMaximizingPlayer)

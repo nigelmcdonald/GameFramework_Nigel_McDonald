@@ -10,7 +10,7 @@ namespace GameFramework
     abstract public class Algorithm
     {
         protected Game thisGame;
-        protected string [,] thisBoard;
+        protected string [,] thisBoard;        
 
         public Algorithm (Game game)
         {

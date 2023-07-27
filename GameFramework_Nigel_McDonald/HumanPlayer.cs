@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameFramework
 {
-    class HumanPlayer : Player
+    class HumanPlayer : Player, IPlayerObserver
     {
         int row = 0;
         int column = 0;
-        public HumanPlayer(Game theGame) : base(theGame) { }
+        public HumanPlayer(Game theGame, string name) : base(theGame, name) { }
 
         //this function asks the player to enter the cell in which they want to make a move
         // it repeats if the cell is already full
@@ -44,6 +44,10 @@ namespace GameFramework
                 }
             } while (!thisGame.board.CellIsEmpty(row, column));
             thisGame.board.matrix[row, column] = thisGame.Symbols[1].ToString();
+
+            //update last move made
+            thisGame.MovesMade[0] = row;
+            thisGame.MovesMade[1] = column;
         }
     }
 }

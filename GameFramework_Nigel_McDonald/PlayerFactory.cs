@@ -8,7 +8,7 @@ namespace GameFramework
 {
     public class PlayerFactory
     {
-        public Player CreatePlayer(string playerType, Game theGame)
+        public Player CreatePlayer(string playerType, Game theGame, string name)
         {
             // Factory method to create algorithms based on algorithmType parameter
             // Returns a concrete Algorithm instance based on the algorithmType
@@ -16,9 +16,9 @@ namespace GameFramework
             switch (playerType.ToLower())
             {
                 case "aiplayer":
-                    return new AIPlayer(theGame);
+                    return new AIPlayer(theGame, name);
                 case "humanplayer":
-                    return new HumanPlayer(theGame);
+                    return new HumanPlayer(theGame, name);
                 default:
                     throw new ArgumentException("Invalid player type.");
             }

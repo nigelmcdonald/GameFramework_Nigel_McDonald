@@ -8,10 +8,9 @@ namespace GameFramework
 {
     class TicTacToeGame : Game
     {
-        public int min = 3;
-        public int max = 20;
-        int turnsLeft; 
-
+        //max board size for this game
+        public int boardMin = 3;
+        public int boardMax = 20;        
 
         public TicTacToeGame()
         {
@@ -36,7 +35,7 @@ namespace GameFramework
                 userInput = Console.ReadLine();
             }
             board = new Board(Int32.Parse(userInput), Int32.Parse(userInput));
-            turnsLeft = board.matrix.GetLength(0) * board.matrix.GetLength(1);//count total turns possible
+            //turnsLeft = board.matrix.GetLength(0) * board.matrix.GetLength(1);//count total turns possible
         }
 
         // helper function used to check if the values of multiple cells are equal
@@ -116,8 +115,8 @@ namespace GameFramework
 
         public override void Play()
         {
-            Player1 = playerFactory.CreatePlayer("AIPlayer", this);
-            Player2 = playerFactory.CreatePlayer("HumanPlayer", this);
+            Player1 = playerFactory.CreatePlayer("AIPlayer", this, "BroBot");
+            Player2 = playerFactory.CreatePlayer("HumanPlayer", this, "Nigel");
             while (!CheckForWin(board.matrix) || IsDraw(board.matrix))
             {
                 Player1.MakeMove();

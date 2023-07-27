@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework\\GameFramework\\GameFramework.csproj": {}
+    "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework_Nigel_McDonald\\GameFramework_Nigel_McDonald\\GameFramework.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework\\GameFramework\\GameFramework.csproj": {
+    "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework_Nigel_McDonald\\GameFramework_Nigel_McDonald\\GameFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework\\GameFramework\\GameFramework.csproj",
+        "projectUniqueName": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework_Nigel_McDonald\\GameFramework_Nigel_McDonald\\GameFramework.csproj",
         "projectName": "GameFramework",
-        "projectPath": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework\\GameFramework\\GameFramework.csproj",
+        "projectPath": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework_Nigel_McDonald\\GameFramework_Nigel_McDonald\\GameFramework.csproj",
         "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework\\GameFramework\\obj\\",
+        "outputPath": "C:\\Users\\mynam\\Documents\\School\\2023\\Semester 2\\SIT320 - Advanced Algorithms\\2P\\Code\\GameFramework_Nigel_McDonald\\GameFramework_Nigel_McDonald\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
