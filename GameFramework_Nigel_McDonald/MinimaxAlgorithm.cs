@@ -13,27 +13,30 @@ namespace GameFramework
         private const int MaxDepth = 20; // Maximum depth for the search to limit time taken
         int boardLength; // size of the board
 
-        public MinimaxAlgorithm(Game theGame) : base(theGame){}
+        public MinimaxAlgorithm()
+        {
+            name = "Minimax";
+        }
 
         public override void MakeBestMove()
         {
             //thisBoard = thisGame.board.matrix;            
             int bestScore = int.MinValue;
             int[] bestMove = new int[2];
-            boardLength = thisGame.board.matrix.GetLength(0) * thisGame.board.matrix.GetLength(1);
+            boardLength = GameManager.SelectedGame.board.matrix.GetLength(0) * GameManager.SelectedGame.board.matrix.GetLength(1);
 
             // Iterate over each possible move
-            for (int row = 0; row < thisGame.board.matrix.GetLength(0); row++)
+            for (int row = 0; row < GameManager.SelectedGame.board.matrix.GetLength(0); row++)
             {
-                for (int col = 0; col < thisGame.board.matrix.GetLength(1); col++)
+                for (int col = 0; col < GameManager.SelectedGame.board.matrix.GetLength(1); col++)
                 {
                     // Check if the current cell is empty
-                    if (thisGame.board.matrix[row, col] == null)
+                    if (GameManager.SelectedGame.board.matrix[row, col] == null)
                     {
                         // Make a copy of the board
-                        string[,] boardCopy = (string[,])thisGame.board.matrix.Clone();
+                        string[,] boardCopy = (string[,])GameManager.SelectedGame.board.matrix.Clone();
                         // Make the move on the copied board
-                        boardCopy[row, col] = thisGame.Symbols[0].ToString();
+                        boardCopy[row, col] = GameManager.SelectedGame.Symbols[0].ToString();
 
                         // Recursively evaluate the current move
                         int score = Minimax(boardCopy, 0, false);
@@ -49,10 +52,11 @@ namespace GameFramework
                 }
             }
             //make the best Move found;
-            thisGame.board.matrix[bestMove[0], bestMove[1]] = thisGame.Symbols[0].ToString();
+            GameManager.SelectedGame.board.matrix[bestMove[0], bestMove[1]] = GameManager.SelectedGame.Symbols[0].ToString();
+
             //update last move made
-            thisGame.MovesMade[0] = bestMove[0];
-            thisGame.MovesMade[1] = bestMove[1];
+            int[] lastMove = { bestMove[0], bestMove[1] };
+            GameManager.Instance.MovesMade = lastMove;
 
         }
 
@@ -61,17 +65,17 @@ namespace GameFramework
             //Console.WriteLine($"Starting minimax: depth={depth}, isMaximizingPlayer={isMaximizingPlayer}");//DEBUGGING
 
             // Check if the game is over or maximum depth is reached
-            if (thisGame.CheckForWin(board) && !isMaximizingPlayer)
+            if (GameManager.SelectedGame.CheckForWin(board) && !isMaximizingPlayer)
             {
                 //return Evaluate(board);
                 return boardLength - depth; // path weighting to make the AI choose the quickest path to a win
             }
-            else if (thisGame.CheckForWin(board) && isMaximizingPlayer)
+            else if (GameManager.SelectedGame.CheckForWin(board) && isMaximizingPlayer)
             {
                 //return Evaluate(board);
                 return -boardLength + depth; // path weighting to make the AI choose the quickest path to a win
             }
-            else if (thisGame.IsDraw(board)) // Add a new function to check for a draw
+            else if (GameManager.SelectedGame.IsDraw(board)) // Add a new function to check for a draw
             {
                 return 0; // Or any score that represents a draw
             }
@@ -105,7 +109,7 @@ namespace GameFramework
                             string[,] boardCopy = (string[,])board.Clone();
 
                             // Make the move on the copied board
-                            boardCopy[row, col] = thisGame.Symbols[0].ToString(); // Assuming player 1 is maximizing player
+                            boardCopy[row, col] = GameManager.SelectedGame.Symbols[0].ToString(); // Assuming player 1 is maximizing player
 
                             // Recursively evaluate the current move for the minimizing player
                             int score = Minimax(boardCopy, depth + 1, false);
@@ -137,7 +141,7 @@ namespace GameFramework
                             string[,] boardCopy = (string[,])board.Clone();
 
                             // Make the move on the copied board
-                            boardCopy[row, col] = thisGame.Symbols[1].ToString(); // Assuming player 2 is minimizing player
+                            boardCopy[row, col] = GameManager.SelectedGame.Symbols[1].ToString(); // Assuming player 2 is minimizing player
 
                             // Recursively evaluate the current move for the maximizing player
                             int score = Minimax(boardCopy, depth + 1, true);

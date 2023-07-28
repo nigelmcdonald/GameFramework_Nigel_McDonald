@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameFramework
 {
-    class ChessGame : Game
+    class BackgammonGame : Game
     {
-        public ChessGame()
+        public BackgammonGame()
         {
-            GameName = "Chess";
+            GameName = "Backgammon";
         }
 
 

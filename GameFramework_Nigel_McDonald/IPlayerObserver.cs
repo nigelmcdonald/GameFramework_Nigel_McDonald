@@ -8,6 +8,6 @@ namespace GameFramework
 {
     public interface IPlayerObserver
     {
-        void Update(IPlayerObserverPattern subject);
+        void Update(IPlayerObserverPattern playerObserverPattern);
     }
 }

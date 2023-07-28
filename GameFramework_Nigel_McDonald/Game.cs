@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameFramework
 {
-    abstract public class Game : IPlayerObserverPattern
+    abstract public class Game
     {
-        //Player Observers
-        private List<IPlayerObserver> playerObservers;
-
         //board
         public Board board;        
         protected int minBoardDimention;
@@ -19,58 +16,35 @@ namespace GameFramework
         //sybols used by the board
         protected List<char> symbols;
 
-        //validation
-        protected InputValidator validate = new InputValidator();            
-        
-        // Player Setup
-        protected static PlayerFactory playerFactory = new PlayerFactory();
-        protected Player Player1;//AI
-        protected Player Player2;//Human
-
-        //observer updateable info
-        private int[] _movesMade;
-        public int[] MovesMade
-        {
-            get { return _movesMade; }
-            set
-            {
-                _movesMade = value; //update the observers when the moves mad is updated
-                Notify();
-            }
-        }
-
+        //properties
         public List<char> Symbols { get; protected set; }
+        public string GameName { get; protected set; }
 
         public abstract void Play();
         public abstract bool CheckForWin(string[,] board);
         public abstract bool IsDraw(string[,] board);
 
-        //default game constructor
-        public Game()
-        {
-            playerObservers = new List<IPlayerObserver>();
-            _movesMade = new int[2];
+    
+
+        // Board setup
+        public void BoardSetup() {
+
+            // Prompt the user to choose board Length/height
+            Console.WriteLine("Enter the board width of the board between " + minBoardDimention + " and " + maxBoardDimention);
+            string userInput = Console.ReadLine();
+            while (!GameManager.Validator.ValidateInput(userInput, minBoardDimention, maxBoardDimention))
+            {
+                Console.WriteLine("Error: Invalid input, please try again");
+                userInput = Console.ReadLine();
+            }
+            board = new Board(Int32.Parse(userInput), Int32.Parse(userInput));
+            //turnsLeft = board.matrix.GetLength(0) * board.matrix.GetLength(1);//count total turns possible
         }
 
         //print current state of the game board
         public void PrintMyBoard()
         {
             board.PrintBoard();
-        }
-
-        //used to notify all of the registered Observer players of changes
-        public void Notify()
-        {
-            for (int i = 0; i < playerObservers.Count; i++)
-            {
-                playerObservers[i].Update(this);
-            }
-        }
-
-        //adds a new observer to the list to be updated of changes when they occur
-        public void Subscribe(IPlayerObserver observer)
-        {
-            playerObservers.Add(observer);
-        }
+        }        
     }
 }

@@ -8,29 +8,43 @@ namespace GameFramework
 {
     public class PlayerFactory
     {
-        public Player CreatePlayer(string playerType, Game theGame, string name)
-        {
-            // Factory method to create algorithms based on algorithmType parameter
-            // Returns a concrete Algorithm instance based on the algorithmType
+        private List<Player> players = new List<Player>();// game holder
 
-            switch (playerType.ToLower())
-            {
-                case "aiplayer":
-                    return new AIPlayer(theGame, name);
-                case "humanplayer":
-                    return new HumanPlayer(theGame, name);
-                default:
-                    throw new ArgumentException("Invalid player type.");
-            }
+        //constructor
+        public PlayerFactory()
+        {
+            players.Add(new AIPlayer(".."));
+            players.Add(new HumanPlayer(".."));
         }
 
-        public List<string> GetAvailableAlgorithmNames()
-        {
-            return new List<string>
+        public Player CreatePlayer()
+        {   // Factory method to create players
+            // Returns a concrete Player instance based on selection from players list           
+
+            // Display available player types to the user
+            Console.WriteLine("Available Player Types:");
+            for (int i = 0; i < players.Count; i++)
             {
-                "AIPlayer",
-                "HumanPlayer"
-            };
+                Console.WriteLine(i + " : " + players[i].DefaultPlayerType);
+            }
+
+            // Prompt the user to create a player
+            Console.WriteLine("Enter type of player you would like to create: ");
+            string userInput = Console.ReadLine();
+            while (!GameManager.Validator.ValidateInput(userInput, 0, players.Count - 1))
+            {
+                Console.WriteLine("Error: Invalid input, please try again");
+                userInput = Console.ReadLine();
+            }
+            int typeNumber = Int32.Parse(userInput);// number selection of player type storage
+
+            
+            //setup player name
+            Console.WriteLine("Enter that players name: ");
+            userInput = Console.ReadLine();           
+            players[typeNumber].PlayerName = userInput;
+            
+            return players[typeNumber];
         }
     }
 }

@@ -8,26 +8,28 @@ namespace GameFramework
 {
     abstract public class Player : IPlayerObserver
     {
+        private string defaultPlayerType;
         private string playerName;
-        protected Game thisGame;
-        protected InputValidator validate = new InputValidator();
+
 
         //properties
-        public string PlayerName { get => playerName; protected set => playerName = value; }
+        public string DefaultPlayerType { get; protected set; }
+        public string PlayerName { get => playerName; set => playerName = value; }
 
-        public Player(Game game, string name) 
+        protected Player(string name) 
         { 
-            thisGame = game;
             playerName = name;
+            GameManager.Instance.Subscribe(this); // sub ot observer pattern
         }
 
         public abstract void MakeMove();
 
         public void Update(IPlayerObserverPattern patternHolder)
         {
-            if (patternHolder is Game game)
+            //Console.WriteLine("DEBUGGING: Update Called!");//DEBUGGING
+            if (patternHolder is GameManager manager)
             {
-                Console.WriteLine(playerName + " the last move made was to row:" + game.MovesMade[0] + " Collumn: " + game.MovesMade[1]);
+                Console.WriteLine(PlayerName + " the last move made was to row:" + GameManager.Instance.MovesMade[0] + " Collumn: " + GameManager.Instance.MovesMade[1]);
             }
         }
 

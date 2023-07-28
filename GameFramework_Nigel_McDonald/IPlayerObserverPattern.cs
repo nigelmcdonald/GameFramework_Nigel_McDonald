@@ -9,7 +9,7 @@ namespace GameFramework
     //template of the observer pattern holder
     public interface IPlayerObserverPattern
     {
-        void Subscribe(IPlayerObserver observer);
+        void Subscribe(IPlayerObserver playerObserver);
 
         //used to notify all of the registered players of changes
         void Notify();

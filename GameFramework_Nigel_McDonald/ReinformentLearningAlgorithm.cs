@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameFramework
 {
-    class GreedyAlgorithm : Algorithm
+    class ReinforcmentLearningAlgorithm : Algorithm
     {
-        public GreedyAlgorithm()
+        public ReinforcmentLearningAlgorithm()
         {
-            name = "Greedy";
+            name = "Reinforcment Learning";
         }
 
         public override void MakeBestMove()

@@ -9,13 +9,11 @@ namespace GameFramework
     //using generics to allow these algorithms to apply across different games
     abstract public class Algorithm
     {
-        protected Game thisGame;
-        protected string [,] thisBoard;        
+        protected string name;
+        protected string [,] thisBoard;
 
-        public Algorithm (Game game)
-        {
-            thisGame = game;
-        }
+        public string Name { get => name; protected set => name = value; }
+
         public abstract void MakeBestMove();
     }
 }

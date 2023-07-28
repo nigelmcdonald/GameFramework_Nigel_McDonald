@@ -7,35 +7,21 @@ using System.Threading.Tasks;
 namespace GameFramework
 {
     class TicTacToeGame : Game
-    {
+    {  
         //max board size for this game
         public int boardMin = 3;
-        public int boardMax = 20;        
+        public int boardMax = 20;       
 
         public TicTacToeGame()
         {
+            GameName = "TicTacToe";
             minBoardDimention = 3;
             maxBoardDimention = 15;
             Symbols = new List<char>();
             Symbols.Add('X');
             Symbols.Add('O');           
 
-            BoardSetup();            
-        }               
-        
-        // Board setup
-        private void BoardSetup()
-        {
-            // Prompt the user to choose board Length/height
-            Console.WriteLine("Enter the board width of the board between " + minBoardDimention + " and " + maxBoardDimention);
-            string userInput = Console.ReadLine();
-            while (!validate.ValidateInput(userInput, minBoardDimention, maxBoardDimention))
-            {
-                Console.WriteLine("Error: Invalid input, please try again");
-                userInput = Console.ReadLine();
-            }
-            board = new Board(Int32.Parse(userInput), Int32.Parse(userInput));
-            //turnsLeft = board.matrix.GetLength(0) * board.matrix.GetLength(1);//count total turns possible
+            //BoardSetup();            
         }
 
         // helper function used to check if the values of multiple cells are equal
@@ -115,17 +101,18 @@ namespace GameFramework
 
         public override void Play()
         {
-            Player1 = playerFactory.CreatePlayer("AIPlayer", this, "BroBot");
-            Player2 = playerFactory.CreatePlayer("HumanPlayer", this, "Nigel");
             while (!CheckForWin(board.matrix) || IsDraw(board.matrix))
             {
-                Player1.MakeMove();
-                board.PrintBoard();
-                if (!CheckForWin(board.matrix) || IsDraw(board.matrix))
-                {                    
-                    Player2.MakeMove();
-                    board.PrintBoard();
-                }
+                for (int i = 0; i < GameManager.Players.Count; i++)
+                {
+                    if (!CheckForWin(board.matrix) || IsDraw(board.matrix))
+                    {
+                        Console.WriteLine(GameManager.Players[i].PlayerName +" it's your turn.");
+                        GameManager.Players[i].MakeMove();
+                        board.PrintBoard();
+                    }                    
+                }                
+                
             }
             if (IsDraw(board.matrix))
             {
